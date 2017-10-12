@@ -4,10 +4,10 @@
 function db_connect(){
 
         //varibles with db details
-         $db_user = "onion";
-         $db_pass = "noino";
+         $db_user = "root";
+         $db_pass = "";
          $db_host = "localhost";
-         $db_name = "login_base";
+         $db_name = "vidhyalaya";
          $db_type = "mysql";
 
          $options = array(PDO::MYSQL_ATTR_INIT_COMMAND =>'SET NAMES utf8');
