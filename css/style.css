@@ -1,4 +1,45 @@
+@charset "UTF-8";
+
 body{
-	background:#fff;
-	margin:100px 400px;
+   margin: 0;
+   font-family: sans-serif;
+}
+
+
+.header-site, .header-nav-inner{
+	padding-left: 10px;
+        padding-right: 10px;
+}
+
+/*site name */
+.site h1 a { color: #83a4a8; text-decoration: none;}
+.site h1{margin: 0; font-size: 27px; font-family: sans-serif; font-weight: normal;}
+
+
+.header-site{padding-top: 8px; padding-bottom: 8px;}
+
+.header-nav {background-color:#7cbac1;}
+
+.menu ul{margin:0; padding: 0; list-style: none;}
+
+.menu li a {display:block; padding:15px; color: #ffffff; font-size: 15px; text-decoration: none;}
+
+.menu li a:hover{background-color:#75dbe7}
+
+.menu ul:after{content: ""; display:block; clear:both;} 
+
+.menu li{ float: left; width: auto;}
+
+
+
+
+
+
+/* screen size 1040 and above */
+@media(min-width: 1040px){
+          .header-site, .header-nav-inner, .contents {
+          		width: 1000px;
+                        margin-left: auto;
+                        margin-right: auto;
+           }
 }
