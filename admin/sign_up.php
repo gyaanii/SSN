@@ -7,6 +7,8 @@ session_start();
             $password=$_POST['password'];
             $email=$_POST['email'];
 
+            $pdo=database_connect();
+
               if(empty($username) or empty($password) or empty($email)){
               $error="All fields are required";
               }

@@ -1,5 +1,5 @@
 <?php
-
+function database_connect(){
      //creating func. to conn. to db
 
         //varibles with db details
@@ -26,8 +26,10 @@
              die("Error ;(".$e->getMessage());
           }
 
-        header('Content-Type: text/html; charset=utf-8');
+          return $pdo;
+      }
 
+        header('Content-Type: text/html; charset=utf-8');
 ?>
 
 
