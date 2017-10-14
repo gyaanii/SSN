@@ -1,7 +1,6 @@
 <?php
 
      //creating func. to conn. to db
-function db_connect(){
 
         //varibles with db details
          $db_user = "root";
@@ -23,20 +22,11 @@ function db_connect(){
                  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                  $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 
-
-            print("conncetion successful!");
-
           }catch(PDOException $e){
              die("Error ;(".$e->getMessage());
           }
 
-         return $pdo;
-
-       }
-
-
         header('Content-Type: text/html; charset=utf-8');
-    session_start();
 
 ?>
 
