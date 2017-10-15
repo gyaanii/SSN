@@ -1,8 +1,8 @@
 <?php
-session_start();
+
  require_once("includes/connection.php");
 
-          if(!empty($_POST)){
+          if(isset($_POST['submit'])){
             $username=$_POST['username'];
             $password=$_POST['password'];
             $email=$_POST['email'];
@@ -12,26 +12,26 @@ session_start();
               if(empty($username) or empty($password) or empty($email)){
               $error="All fields are required";
               }
-              
+
               else{
 
              $sth= $pdo->prepare("SELECT 1 FROM login WHERE username=:username");
+             $sth->bindvalue(':username', $username);
 
-              $sth->bindvalue(':username', $username);
-              $sth->execute();
+             $sth->execute();
 
-              $row=$sth->fetch();
-              if($row){
+              $checkrows= $sth->fetch();
+              if($checkrows){
                 $error="Username already in use";
                   }
 
               $sth= $pdo->prepare("SELECT 1 FROM login WHERE email=:email");
-
               $sth->bindvalue(':email', $email);
-              $sth->execute();
 
-              $row=$sth->fetch();
-              if($row){
+              $sth->execute();
+              
+              $checkrows= $sth->fetch();
+              if($checkrows){
                 $error="Email Exists";
                 }
           
@@ -50,8 +50,12 @@ session_start();
                   $sth-> bindValue(':salt', $salt);
 
                   $sth->execute();
-                }
-      }      
+           }
+
+           header('Location:login.php');
+           die("Redirecting to login.php");
+      } 
+
 
 ?>
 
@@ -67,7 +71,7 @@ e-mail:<br> <input type="email" name="email"/><br/>
 username:<br><input type= "text" name="username"/><br/>
 password:<br><input type="password" name="password"/><br/>
 <br/>
-<input type="submit" value="sign up"/>
+<input type="submit"  name="submit" value="sign up"/>
 </form>
 </body>
 </html>

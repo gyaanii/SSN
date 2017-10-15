@@ -9,9 +9,7 @@ CREATE TABLE login(
         password char(64) COLLATE utf8_unicode_ci NOT NULL,
         `salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
 
-        PRIMARY KEY(id),
-        UNIQUE KEY(email),
-        UNIQUE KEY(username)
+        PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
 
