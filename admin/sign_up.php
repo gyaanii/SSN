@@ -20,8 +20,8 @@
 
              $sth->execute();
 
-              $checkrows= $sth->fetch();
-              if($checkrows){
+              $checkrows= $sth->rowCount();
+              if($checkrows=1){
                 $error="Username already in use";
                   }
 
@@ -30,7 +30,7 @@
 
               $sth->execute();
               
-              $checkrows= $sth->fetch();
+              $checkrows= $sth->rowCount();
               if($checkrows){
                 $error="Email Exists";
                 }
@@ -52,8 +52,7 @@
                   $sth->execute();
            }
 
-           header('Location:login.php');
-           die("Redirecting to login.php");
+           header('Location:sign_up.php');
       } 
 
 
