@@ -40,15 +40,13 @@
 
           $row= $sth->fetch();
 
-            if($row){
+         if($row){
                 $cpwd = hash('sha256',$password.$row['salt']);
-
                 for($times=0; $times< 65536; $times++){
                         $cpwd = hash('sha256', $cpwd . $row['salt']);
                 }
-            }
 
-          if($cpwd === $row['password']){
+            if($cpwd === $row['password']){
 
             $_SESSION['logged_in']=true;//SHOULD BE DEFINED AS TRUE
             unset($row['salt']);
@@ -56,13 +54,14 @@
 
             header('location:index.php');
             exit();
-          }
-
-          else{
-            $error="Incorrect Details";
-          }
-       }
-    }
+              }
+            }
+            else{
+              $error= "Incorrect Details!!";
+            }
+        }
+     }
+   
 ?>
   <html>
   <head>
@@ -83,5 +82,3 @@
 <?php
   }
 ?>
-
-
