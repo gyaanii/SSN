@@ -13,3 +13,15 @@ CREATE TABLE login(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
 
+
+CREATE TABLE article (
+  
+	id int(11) NOT NULL,
+  
+	article_title varchar(255) NOT NULL,
+  
+	article_content text NOT NULL,
+  
+	article_timestamp int(11) NOT NULL
+) 
+	ENGINE=InnoDB DEFAULT CHARSET=latin1;
